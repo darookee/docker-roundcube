@@ -22,3 +22,8 @@ $config['smtp_pass'] = '%p';
 
 $config['plugins'] = array('carddav', 'managesieve');
 if(getenv('ROUNDCUBE_USER_FILE')) $config['plugins'][] = 'password';
+
+$dockerConfigFile = __DIR__.'/roundcube_docker_config.php';
+if (file_exists($dockerConfigFile)) {
+    require_once($dockerConfigFile);
+}
